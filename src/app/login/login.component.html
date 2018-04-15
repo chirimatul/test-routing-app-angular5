@@ -1,0 +1,22 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-4 p-3" style="border:1px solid rgba(109, 109, 109, 0.39); box-shadow: 2px 2px rgba(128, 128, 128, 0.356);">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="login()">Submit</button>
+      <button type="button" class="btn btn-primary" (click)="forgotPassword()">Forgot password</button>
+      <button type="button" class="btn btn-primary" (click)="register()">Register</button>
+    </form>
+  </div>
+</div>
