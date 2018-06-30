@@ -1,3 +1,117 @@
-<p>
-  new users component
-</p>
+<!-- <div class="row" style="float:right">
+  <div class="col-md-12">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col-md-6 mb-2" *ngFor="let user of users">
+    <div class="card bg-light">
+      <div class="card-header">
+        <label>{{user.fName}} {{user.lName}}</label>
+        <a href="javascript:void(0);" (click)="deleteUser(user)" class="badge badge-danger" style="float:right; margin-right:3px">DELETE</a>
+        <a href="javascript:void(0);" (click)="editUser(user)" class="badge badge-info" style="float:right; margin-right:3px">EDIT</a>
+      </div>
+
+      <div class="card-body alert alert-warning" role="alert" style="margin-bottom:0px">
+        <div class="row">
+          <label class="col-md-4">Mobile Number</label>
+          <label class="col-md-8">{{user.mobNum}}</label>
+        </div>
+        <div class="row">
+          <label class="col-md-4">EmailID</label>
+          <label class="col-md-8">{{user.emailId}}</label>
+        </div>
+        <div class="row">
+          <label class="col-md-4">Date of birth</label>
+          <label class="col-md-8">{{user.dob|date}}</label>
+        </div>
+
+        <div class="row">
+          <label class="col-md-4">Gender</label>
+          <label class="col-md-8">{{user.gender?'Male':'Female'}}</label>
+        </div>
+
+        <div class="row">
+          <label class="col-md-4">Role</label>
+
+
+          <div [ngSwitch]="user.role" class="col-md-8">
+            <div *ngSwitchCase="user.role.admin">
+              <label>Admin</label>
+            </div>
+            <div *ngSwitchDefault>
+              <label>Normal</label>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <label class="col-md-4">Address</label>
+          <label class="col-md-8">{{user.address}}</label>
+        </div>
+        <div class="row">
+          <label class="col-md-4">City</label>
+          <label class="col-md-8">{{user.city}}</label>
+        </div>
+        <div class="row">
+          <label class="col-md-4">Country</label>
+          <label class="col-md-8">{{user.country}}</label>
+        </div>
+
+        <div class="row">
+          <label class="col-md-4">Zipcode</label>
+          <label class="col-md-8">{{user.zipCode}}</label>
+        </div>
+
+
+        <div class="row">
+          <label class="col-md-4">About user</label>
+          <label class="col-md-8">{{user.about}}</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row mr-2" style="float:right;">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+      <li class="page-item disabled">
+        <a class="page-link" href="" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

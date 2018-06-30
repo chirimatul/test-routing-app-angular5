@@ -1,5 +1,210 @@
-<div style="height:500px;border:1px solid rgba(109, 109, 109, 0.39); box-shadow: 2px 2px rgba(128, 128, 128, 0.356);">
-  <p>
-    new  user works! from home module
-  </p>
+<div class="card">
+  <div class="card-header">
+    <label>{{formsHeader}}</label>
+  </div>
+  <div class="card-body">
+
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Name</label>
+          <input type="text" class="form-control" id="inputEmail4" name="fName" placeholder="Name" [(ngModel)]="user.fName">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Surname</label>
+          <input type="text" class="form-control" id="inputPassword4" placeholder="Surname" [(ngModel)]="user.lName" name="lName">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputMobileNo">Mobile number</label>
+          <input type="email" class="form-control" id="inputMobileNo" placeholder="Mobile Number" [(ngModel)]="user.mobNum" name="mobNum">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmailId">Email ID</label>
+          <input type="text" class="form-control" id="inputEmailId" placeholder="e.g. atulchirame@gmail.com" [(ngModel)]="user.emailId"
+            name="emailId">
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputDob"> Birth date</label>
+          <input type="text" class="form-control" id="inputDob" placeholder="Date of birth" [(ngModel)]="user.dob" name="dob">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputGender">Gender</label>
+          <!-- <input type="email" class="form-control" id="inputGender" placeholder="radio button">
+                 -->
+          <div>
+            <div class="form-check form-check-inline" id="inputGender">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+              <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" name="address" [(ngModel)]="user.address" placeholder="e.g. Kumar primavera, kharadi bypass">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" [(ngModel)]="user.city" name="city" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputCountry">Country</label>
+          <select id="inputCountry" class="form-control">
+            <option selected>India</option>
+            <option>US</option>
+            <option>UK</option>
+            <option>SA</option>
+            <option>Canada</option>
+            <option>Japan</option>
+            <option>France</option>
+            <option>Jermony</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <input type="text" class="form-control" id="inputZip" [(ngModel)]="user.zipCode" name="zipCode">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Admin
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">About user</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="user.about" name="about"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="button" style="float:left" class="btn btn-primary" (click)="addUser()">{{formsHeader}}</button>
+        <div *ngIf="addingUser" class="progress" style="width:200px;margin-left:50px; float:left">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+            aria-valuemax="100" style="width: 100%"></div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <!-- <div class="card-footer text-muted">
+      2 days ago
+    </div> -->
+</div>
+
+
+<!-- Button trigger modal -->
+<button id="btnModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="display:none">
+  dummy
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="row">
+      <div class="col-md-12" style="margin:-5px">
+        <div class="card bg-light">
+          <div class="card-header alert alert-success" role="alert">
+            <!-- <label>{{newUser.fName}} {{newUser.lName}}</label> -->
+            <h5 style="float:left">User saved successfully</h5>
+            <button id="btnCloseModal" type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right">
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+          </div>
+
+
+          <div *ngIf="newUser != null" class="card-body alert alert-warning" role="alert" style="margin-top: -16px;margin-bottom: 0px;">
+
+            <!-- <div class="row alert alert-success" role="alert">
+              <h5>User is saved successfully !</h5>
+            </div> -->
+
+
+            <div class="row">
+              <label class="col-md-4">Name</label>
+              <label class="col-md-8">{{newUser.fName}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4">Surname</label>
+              <label class="col-md-8">{{newUser.lName}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4">Mobile Number</label>
+              <label class="col-md-8">{{newUser.mobNum}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4">EmailID</label>
+              <label class="col-md-8">{{newUser.emailId}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4">Date of birth</label>
+              <label class="col-md-8">{{newUser.dob|date}}</label>
+            </div>
+
+            <div class="row">
+              <label class="col-md-4">Gender</label>
+              <label class="col-md-8">{{newUser.gender?'Male':'Female'}}</label>
+            </div>
+
+            <div class="row">
+              <label class="col-md-4">Role</label>
+
+
+              <div [ngSwitch]="newUser.role" class="col-md-8">
+                <div *ngSwitchCase="newUser.role.admin">
+                  <label>Admin</label>
+                </div>
+                <div *ngSwitchDefault>
+                  <label>Normal</label>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <label class="col-md-4">Address</label>
+              <label class="col-md-8">{{newUser.address}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4">City</label>
+              <label class="col-md-8">{{newUser.city}}</label>
+            </div>
+            <div class="row">
+              <label class="col-md-4">Country</label>
+              <label class="col-md-8">{{newUser.country}}</label>
+            </div>
+
+            <div class="row">
+              <label class="col-md-4">Zipcode</label>
+              <label class="col-md-8">{{newUser.zipCode}}</label>
+            </div>
+
+
+            <div class="row">
+              <label class="col-md-4">About user</label>
+              <label class="col-md-8">{{newUser.about}}</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
